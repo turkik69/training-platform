@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملتقى | رؤية ترشّحي — اللجنة التنسيقية للمؤسسات التدريبية الخاصة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#081527;
+    --navy-900:#0B2140;
+    --navy-800:#123059;
+    --gold-600:#B4893B;
+    --gold-500:#C9A24B;
+    --gold-300:#E3C583;
+    --sand-50:#FAF7F1;
+    --sand-100:#F1EADB;
+    --ink-900:#1A2333;
+    --ink-600:#54607A;
+    --ink-400:#8590A6;
+    --white:#FFFFFF;
+    --radius-s:10px;
+    --radius-m:16px;
+    --radius-l:28px;
+    --shadow-card:0 10px 30px -14px rgba(11,33,64,0.25);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Cairo',sans-serif;background:var(--sand-50);color:var(--ink-900);line-height:1.75;}
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:'Cairo',sans-serif;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{scroll-margin-top:88px;}
+
+  header.site-nav{position:sticky;top:0;z-index:50;background:rgba(250,247,241,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(11,33,64,0.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto;position:relative;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;color:var(--navy-900);}
+  .brand-mark{width:34px;height:34px;flex-shrink:0;}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{font-weight:600;font-size:.95rem;color:var(--navy-800);}
+  .nav-links a:hover{color:var(--gold-600);}
+  .nav-cta{background:var(--navy-900);color:var(--sand-50);padding:10px 22px;border-radius:999px;font-weight:700;font-size:.9rem;border:1.5px solid var(--navy-900);}
+  .nav-cta:hover{background:var(--navy-800);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle span{display:block;width:24px;height:2.5px;background:var(--navy-900);margin:5px 0;border-radius:2px;}
+  .nav-cta-mobile{display:none;}
+
+  @media (max-width:860px){
+    .nav-links{position:absolute;inset-inline:0;top:100%;background:var(--sand-50);flex-direction:column;align-items:flex-start;padding:20px 24px 28px;gap:18px;border-bottom:1px solid rgba(11,33,64,0.08);display:none;}
+    .nav-links.open{display:flex;}
+    .nav-cta{display:none;}
+    .nav-cta-mobile{display:block;background:var(--navy-900);color:var(--sand-50);padding:10px 22px;border-radius:999px;font-weight:700;}
+    .nav-toggle{display:block;}
+  }
+
+  .hero{background:radial-gradient(circle at 25% 15%,var(--navy-800),var(--navy-950) 70%);color:var(--sand-50);padding:64px 0 90px;overflow:hidden;}
+  .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1180px;margin:0 auto;padding:0 24px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,162,75,0.15);border:1px solid rgba(201,162,75,0.4);color:var(--gold-300);padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:22px;}
+  .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-500);}
+  .hero h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:900;line-height:1.32;margin-bottom:20px;color:var(--white);}
+  .hero h1 span{color:var(--gold-300);}
+  .hero p.lead{font-size:1.05rem;color:rgba(250,247,241,0.82);max-width:52ch;margin-bottom:30px;}
+  .stat-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
+  .stat-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);padding:10px 18px;border-radius:14px;font-size:.85rem;font-weight:700;color:var(--sand-100);}
+  .stat-pill b{color:var(--gold-300);font-size:1rem;margin-inline-end:4px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease;cursor:pointer;border:1.5px solid transparent;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold-500);color:var(--navy-950);}
+  .btn-gold:hover{background:var(--gold-300);}
+  .btn-outline{border-color:rgba(255,255,255,0.4);color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold-300);color:var(--gold-300);}
+
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  .hero-copy > *{animation:fadeInUp .7s ease both;}
+  .hero-copy > *:nth-child(2){animation-delay:.05s;}
+  .hero-copy > *:nth-child(3){animation-delay:.1s;}
+  .hero-copy > *:nth-child(4){animation-delay:.15s;}
+  .hero-copy > *:nth-child(5){animation-delay:.2s;}
+
+  .section{padding:84px 0;}
+  .section-alt{background:var(--white);}
+  .kicker{display:block;color:var(--gold-600);font-weight:800;font-size:.85rem;letter-spacing:.06em;margin-bottom:10px;}
+  .section h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:var(--navy-900);margin-bottom:16px;}
+  .section .section-lead{color:var(--ink-600);max-width:68ch;font-size:1.02rem;margin-bottom:44px;}
+
+  .goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .goal-card{background:var(--white);border:1px solid rgba(11,33,64,0.08);border-radius:var(--radius-m);padding:26px;box-shadow:var(--shadow-card);}
+  .goal-num{width:38px;height:38px;border-radius:50%;background:var(--navy-900);color:var(--gold-300);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:16px;}
+  .goal-card h3{font-size:1.05rem;font-weight:800;color:var(--navy-900);margin-bottom:8px;}
+  .goal-card p{font-size:.92rem;color:var(--ink-600);}
+
+  .filter-bar{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;background:var(--white);padding:18px;border-radius:var(--radius-m);border:1px solid rgba(11,33,64,0.08);}
+  .filter-bar input,.filter-bar select{font-family:'Cairo',sans-serif;padding:11px 16px;border-radius:10px;border:1.5px solid rgba(11,33,64,0.14);font-size:.92rem;color:var(--navy-900);background:var(--sand-50);}
+  .filter-bar input{flex:1 1 220px;}
+  .filter-bar select{flex:1 1 150px;}
+  .filter-bar input:focus,.filter-bar select:focus{outline:2px solid var(--gold-500);outline-offset:1px;}
+
+  .directory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .inst-card{background:var(--white);border:1px solid rgba(11,33,64,0.08);border-radius:var(--radius-m);padding:22px;box-shadow:var(--shadow-card);}
+  .inst-type{display:inline-block;font-size:.72rem;font-weight:800;color:var(--gold-600);background:rgba(201,162,75,0.12);padding:3px 10px;border-radius:999px;margin-bottom:12px;}
+  .inst-card h4{font-size:1.02rem;font-weight:800;color:var(--navy-900);margin-bottom:10px;}
+  .inst-meta{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--ink-600);}
+  .inst-meta b{color:var(--ink-400);font-weight:700;font-size:.75rem;min-width:60px;display:inline-block;}
+  .empty-state{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--ink-400);font-weight:600;}
+  .directory-note{margin-top:20px;font-size:.82rem;color:var(--ink-400);}
+
+  .pillar{border-inline-start:3px solid var(--gold-500);padding-inline-start:26px;margin-bottom:50px;}
+  .pillar:last-child{margin-bottom:0;}
+  .pillar-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+  .pillar-head .p-index{font-size:.85rem;font-weight:800;color:var(--gold-600);}
+  .pillar-head h3{font-size:1.35rem;font-weight:900;color:var(--navy-900);}
+  .pillar-desc{color:var(--ink-600);margin-bottom:22px;max-width:70ch;font-size:.95rem;}
+  .duty-list{display:flex;flex-direction:column;gap:16px;}
+  .duty-item{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--white);border:1px solid rgba(11,33,64,0.08);border-radius:var(--radius-m);padding:20px;}
+  .duty-col .label{font-size:.72rem;font-weight:800;color:var(--ink-400);margin-bottom:6px;display:block;}
+  .duty-col.mandate p{font-size:.9rem;color:var(--ink-600);}
+  .duty-col.feature p{font-size:.9rem;color:var(--navy-900);font-weight:600;}
+
+  .timeline{display:flex;gap:0;position:relative;}
+  .timeline-item{flex:1;position:relative;padding-inline-end:30px;}
+  .timeline-item:last-child{padding-inline-end:0;}
+  .timeline-dot{width:16px;height:16px;border-radius:50%;background:var(--gold-500);margin-bottom:16px;position:relative;z-index:2;}
+  .timeline-line{position:absolute;top:8px;right:0;left:0;height:2px;background:rgba(201,162,75,0.35);z-index:1;}
+  .timeline-item h4{font-size:1rem;font-weight:800;color:var(--navy-900);margin-bottom:8px;}
+  .timeline-item p{font-size:.87rem;color:var(--ink-600);}
+  .gov-note{margin-top:36px;background:var(--sand-100);border-radius:var(--radius-m);padding:22px 26px;font-size:.88rem;color:var(--ink-600);border-inline-start:3px solid var(--navy-800);}
+
+  .candidate-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;align-items:center;background:var(--navy-900);color:var(--sand-50);border-radius:var(--radius-l);padding:48px;}
+  .avatar-mark{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--gold-500),var(--gold-300));display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:900;color:var(--navy-950);margin-inline:auto;}
+  .candidate-name{font-size:1.4rem;font-weight:900;text-align:center;margin-top:18px;}
+  .candidate-role{font-size:.8rem;color:var(--gold-300);text-align:center;margin-top:6px;max-width:220px;margin-inline:auto;}
+  .candidate-copy p{color:rgba(250,247,241,0.85);font-size:.96rem;margin-bottom:16px;}
+  .candidate-copy .why{background:rgba(255,255,255,0.06);border-radius:var(--radius-m);padding:18px 22px;border-inline-start:3px solid var(--gold-500);font-size:.92rem;color:var(--sand-100);margin-bottom:14px;}
+  .edit-hint{font-size:.78rem;color:rgba(250,247,241,0.5) !important;}
+
+  footer{background:var(--navy-950);color:rgba(250,247,241,0.75);padding:52px 0 30px;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+  .footer-brand{font-weight:800;color:var(--sand-50);font-size:1.15rem;margin-bottom:8px;}
+  .footer-tag{font-size:.85rem;max-width:40ch;}
+  .footer-cta{display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  .footer-bottom{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);font-size:.78rem;color:rgba(250,247,241,0.45);}
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .converge-wrap{order:-1;max-width:300px;margin:0 auto 12px;}
+    .goals-grid{grid-template-columns:repeat(2,1fr);}
+    .directory-grid{grid-template-columns:repeat(2,1fr);}
+    .duty-item{grid-template-columns:1fr;}
+    .candidate-wrap{grid-template-columns:1fr;padding:34px 26px;}
+  }
+  @media (max-width:600px){
+    .goals-grid{grid-template-columns:1fr;}
+    .directory-grid{grid-template-columns:1fr;}
+    .section{padding:60px 0;}
+    .timeline{flex-direction:column;gap:26px;}
+    .timeline-line{display:none;}
+  }
+
+  :focus-visible{outline:2.5px solid var(--gold-500);outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="6" fill="#C9A24B"/>
+        <circle cx="6" cy="8" r="2.6" fill="#0B2140"/>
+        <circle cx="34" cy="8" r="2.6" fill="#0B2140"/>
+        <circle cx="8" cy="33" r="2.6" fill="#0B2140"/>
+        <circle cx="32" cy="33" r="2.6" fill="#0B2140"/>
+        <line x1="20" y1="20" x2="6" y2="8" stroke="#C9A24B" stroke-width="1.4"/>
+        <line x1="20" y1="20" x2="34" y2="8" stroke="#C9A24B" stroke-width="1.4"/>
+        <line x1="20" y1="20" x2="8" y2="33" stroke="#C9A24B" stroke-width="1.4"/>
+        <line x1="20" y1="20" x2="32" y2="33" stroke="#C9A24B" stroke-width="1.4"/>
+      </svg>
+      ملتقى
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" onclick="closeNav()">الرئيسية</a>
+      <a href="#goals" onclick="closeNav()">الأهداف</a>
+      <a href="#directory" onclick="closeNav()">دليل المؤسسات</a>
+      <a href="#pillars" onclick="closeNav()">محاور الرؤية</a>
+      <a href="#governance" onclick="closeNav()">الحوكمة</a>
+      <a href="#candidate" onclick="closeNav()">عن المرشح</a>
+      <a href="#directory" class="nav-cta-mobile" onclick="closeNav()">سجّل مؤسستك</a>
+    </nav>
+    <a href="#directory" class="nav-cta">سجّل مؤسستك</a>
+    <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="badge">رؤية الترشح لنيابة رئاسة اللجنة</span>
+      <h1>حين تلتقي كل مؤسسات التدريب الخاص في <span>مكان واحد</span></h1>
+      <p class="lead">"ملتقى" تصوّري لمستقبل اللجنة التنسيقية للمؤسسات التدريبية الخاصة في سلطنة عُمان — مساحة رقمية واحدة توحّد صوت القطاع، وتترجم اختصاصات اللجنة الاثني عشر إلى أدوات يستخدمها الجميع كل يوم، لا بنودًا على ورق.</p>
+      <div class="stat-row">
+        <div class="stat-pill"><b>٦</b>أهداف استراتيجية</div>
+        <div class="stat-pill"><b>١٢</b>اختصاصًا رسميًا</div>
+        <div class="stat-pill"><b>٤</b>محاور تنفيذية</div>
+      </div>
+      <div class="cta-row">
+        <a href="#pillars" class="btn btn-gold">استكشف الرؤية</a>
+        <a href="#directory" class="btn btn-outline">سجّل مؤسستك</a>
+      </div>
+    </div>
+    <div class="converge-wrap">
+      <svg class="converge-svg" viewBox="0 0 420 380" width="100%" role="img" aria-label="رسم يمثّل مؤسسات من محافظات مختلفة تتقارب نحو منصة واحدة">
+        <line x1="210" y1="190" x2="210" y2="46" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <line x1="210" y1="190" x2="366" y2="110" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <line x1="210" y1="190" x2="378" y2="288" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <line x1="210" y1="190" x2="234" y2="344" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <line x1="210" y1="190" x2="60" y2="300" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <line x1="210" y1="190" x2="52" y2="118" stroke="#C9A24B" stroke-width="1.6" stroke-opacity="0.55"/>
+        <g font-family="Cairo,sans-serif" font-size="13" font-weight="700" fill="#FAF7F1">
+          <circle cx="210" cy="46" r="5" fill="#E3C583"/>
+          <text x="210" y="28" text-anchor="middle">مسقط</text>
+          <circle cx="366" cy="110" r="5" fill="#E3C583"/>
+          <text x="366" y="92" text-anchor="middle">الشرقية</text>
+          <circle cx="378" cy="288" r="5" fill="#E3C583"/>
+          <text x="378" y="310" text-anchor="middle">ظفار</text>
+          <circle cx="234" cy="344" r="5" fill="#E3C583"/>
+          <text x="234" y="366" text-anchor="middle">الداخلية</text>
+          <circle cx="60" cy="300" r="5" fill="#E3C583"/>
+          <text x="60" y="322" text-anchor="middle">الباطنة</text>
+          <circle cx="52" cy="118" r="5" fill="#E3C583"/>
+          <text x="52" y="100" text-anchor="middle">البريمي</text>
+        </g>
+        <circle cx="210" cy="190" r="46" fill="#0B2140" stroke="#C9A24B" stroke-width="2"/>
+        <circle cx="210" cy="190" r="37" fill="none" stroke="#C9A24B" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="210" y="196" text-anchor="middle" font-family="Cairo,sans-serif" font-size="17" font-weight="900" fill="#E3C583">ملتقى</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="goals">
+  <div class="container">
+    <span class="kicker">أولاً</span>
+    <h2>الأهداف التي تُبنى عليها كل خدمة في المنصة</h2>
+    <p class="section-lead">هذه الأهداف الستة كما نصّ عليها تكليف اللجنة الرسمي — وهي المعيار الذي تُقاس به كل ميزة تُضاف إلى "ملتقى".</p>
+    <div class="goals-grid">
+      <div class="goal-card"><div class="goal-num">١</div><h3>تنظيم القطاع وضمان الجودة</h3><p>تنظيم قطاع التدريب الخاص وتطويره، وضمان جودة مخرجاته واستمراريته.</p></div>
+      <div class="goal-card"><div class="goal-num">٢</div><h3>صوت واحد للقطاع</h3><p>توحيد صوت مؤسسات التدريب الخاص في التواصل مع الجهات الحكومية ذات الاختصاص والعلاقة.</p></div>
+      <div class="goal-card"><div class="goal-num">٣</div><h3>تواصل وتنسيق مستمر</h3><p>تعزيز التواصل والتنسيق المستمر بين المؤسسات التدريبية الخاصة والجهات الحكومية وأصحاب المصلحة المشتركين.</p></div>
+      <div class="goal-card"><div class="goal-num">٤</div><h3>مواكبة النمو المتسارع</h3><p>مواكبة التوسع الكمي والنوعي في قطاع التدريب الخاص، وتلبية احتياجاته المتنامية.</p></div>
+      <div class="goal-card"><div class="goal-num">٥</div><h3>تبادل الخبرات</h3><p>تبادل الخبرات والممارسات الجيدة بين المؤسسات التدريبية الخاصة، بما يرتقي بمستوى عملها.</p></div>
+      <div class="goal-card"><div class="goal-num">٦</div><h3>مسار نحو الاحتراف المؤسسي</h3><p>التمهيد لتطوير اللجنة مستقبلاً لتكون رابطة أو جمعية مهنية مرخصة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="directory">
+  <div class="container">
+    <span class="kicker">ثانياً</span>
+    <h2>دليل مؤسسات التدريب الخاص</h2>
+    <p class="section-lead">الخطوة الأولى لتوحيد صوت القطاع أن تعرف كل مؤسسة مكانها بين نظيراتها، وأن تجد كل جهة شريكة من تبحث عنه بسهولة.</p>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="ابحث باسم المؤسسة...">
+      <select id="govFilter"><option value="">كل المحافظات</option></select>
+      <select id="catFilter"><option value="">كل التخصصات</option></select>
+    </div>
+    <div class="directory-grid" id="directoryGrid"></div>
+    <p class="directory-note">* بيانات توضيحية لعرض فكرة الدليل — تُستبدل بمؤسسات القطاع الفعلية فور انضمامها إلى المنصة.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="pillars">
+  <div class="container">
+    <span class="kicker">ثالثاً</span>
+    <h2>من التكليف إلى التطبيق: أربعة محاور تنفيذية</h2>
+    <p class="section-lead">اختصاصات اللجنة الاثنا عشر، كما وردت في تكليفها الرسمي، تتوزع هنا على أربعة محاور — هكذا أتصوّر ترجمة كل اختصاص إلى أداة فعلية داخل المنصة.</p>
+
+    <div class="pillar">
+      <div class="pillar-head"><span class="p-index">المحور ١</span><h3>الشراكة والتمثيل</h3></div>
+      <p class="pillar-desc">يبني هذا المحور جسورًا فعلية بين اللجنة وشركائها — محليًا وإقليميًا ودوليًا — ويحوّل التمثيل من حضور شكلي إلى صوت مبني على استشارة حقيقية.</p>
+      <div class="duty-list">
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>تفعيل الشراكات مع مختلف الجهات المختصة بالتدريب على المستوى المحلي والإقليمي والدولي.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>سجلّ شراكات تفاعلي يعرض كل جهة متعاونة ومسار كل شراكة بشفافية.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>إقامة الفعاليات المتعلقة بالمؤسسات التدريبية، ودراسة آلية المشاركة فيها محليًا ودوليًا، وإيجاد خطة سنوية للفعاليات بالتنسيق مع المديرية العامة.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>تقويم فعاليات موحّد للقطاع بأكمله، بدل عشرات الإعلانات المتفرقة.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>التمثيل في اللجان والمجالس ذات الاختصاص.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>قناة تجمع آراء المؤسسات قبل كل اجتماع تمثيلي، ليكون الصوت الموحّد مبنيًا على استشارة فعلية لا افتراض.</p></div></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-head"><span class="p-index">المحور ٢</span><h3>الحوكمة والتنظيم</h3></div>
+      <p class="pillar-desc">يضمن هذا المحور أن تعمل اللجنة بقواعد واضحة ومعلنة، وأن تبقى قادرة على استيعاب أي دور جديد يُسند إليها.</p>
+      <div class="duty-list">
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>تنفيذ السياسات والخطط المعتمدة التي تضعها الوزارة، وتقديم التغذية الراجعة حولها إلى المديرية العامة.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>قناة تغذية راجعة مباشرة بين المؤسسات والمديرية العامة، بدل المراسلات المتفرقة.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>إعداد لائحة تنظيمية لنظام اللجنة ومكتبها، ونظام الاجتماعات والتصويت، والصلاحيات الإدارية والمالية.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>نشر اللائحة ونظام التصويت بشفافية كاملة أمام كل الأعضاء، فور اعتمادها.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>أي مهام أخرى تُكلَّف بها اللجنة وتدعم عمل القطاع.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>بنية مرنة داخل المنصة قابلة لاستيعاب أي تكليف جديد دون إعادة بناء من الصفر.</p></div></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-head"><span class="p-index">المحور ٣</span><h3>التطوير والنمو</h3></div>
+      <p class="pillar-desc">هنا يتحول القطاع من الاستجابة للتحديات إلى استباقها — عبر بيانات وبحوث وفرص استثمار واضحة.</p>
+      <div class="duty-list">
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>إعداد خطة تنفيذية لزيادة الاستثمار وجذب الاستثمار النوعي، وتعزيز البحث والابتكار في قطاع التدريب الخاص.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>نافذة استثمار تعرض الفرص والحوافز المتاحة للمستثمرين الجدد والحاليين.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>دراسة التحديات التي تواجه قطاع التدريب الخاص، وتقديم المقترحات والحلول للتعامل معها.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>لوحة تحديات مفتوحة يرفع فيها القطاع مشكلاته الفعلية، وتُبنى الحلول من واقع الميدان.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>إعداد الدراسات والبحوث الإجرائية والمسوحات التي تسهم في تطوير التدريب الخاص.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>مكتبة بحثية تجمع كل الدراسات والمسوحات في مكان واحد بدل تشتتها بين الجهات.</p></div></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-head"><span class="p-index">المحور ٤</span><h3>التوعية والاستدامة</h3></div>
+      <p class="pillar-desc">قطاع قوي هو قطاع محصّن من الأزمات، ومفهوم بشكل صحيح لدى المجتمع وسوق العمل معًا.</p>
+      <div class="duty-list">
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>إعداد خطة عمل لإدارة المخاطر والأزمات في المؤسسات التدريبية الخاصة.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>دليل استرشادي جاهز لإدارة الأزمات، تصل إليه كل مؤسسة خلال دقائق عند الحاجة.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>نشر الوعي والتثقيف والتسويق المجتمعي حول التدريب، للحد من الممارسات الخاطئة والأفكار السلبية عنه.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>حملة توعية مستمرة تصحّح الصورة الذهنية عن التدريب الخاص، بالتنسيق مع المديرية العامة.</p></div></div>
+        <div class="duty-item"><div class="duty-col mandate"><span class="label">الاختصاص</span><p>رصد احتياجات سوق العمل من البرامج والتخصصات، وربطها ومواءمتها مع مخرجات التدريب الخاص.</p></div><div class="duty-col feature"><span class="label">على المنصة</span><p>لوحة مواءمة تربط تخصصات التدريب باحتياجات سوق العمل الفعلية أولًا بأول.</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="governance">
+  <div class="container">
+    <span class="kicker">رابعاً</span>
+    <h2>الحوكمة ومسار التطور</h2>
+    <p class="section-lead">اللجنة اليوم تعمل بتكليف رسمي استنادًا إلى القرار الوزاري رقم ٤٠/٢٠٢١ المنظّم لقطاع التدريب الخاص. هذا هو المسار الذي أتصوّره لتطورها.</p>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h4>اليوم — لجنة بتكليف رسمي</h4><p>تعمل اللجنة التنسيقية استنادًا إلى القرار الوزاري رقم ٤٠/٢٠٢١ المنظّم لقطاع التدريب الخاص.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h4>قريبًا — بنية رقمية موحّدة</h4><p>منصة "ملتقى" تسند عمل اللجنة بالبيانات المباشرة والتواصل الفوري بين كل الأطراف.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h4>لاحقًا — رابطة مهنية مرخصة</h4><p>تحقيقًا للهدف السادس لتكليف اللجنة، تمهّد هذه البنية الطريق لتحوّلها إلى رابطة أو جمعية مهنية مرخصة.</p></div>
+    </div>
+    <div class="gov-note">وفق الاختصاص العاشر لتكليف اللجنة، تُبنى لائحة تنظيمية كاملة لنظام اللجنة ومكتبها، ونظام الاجتماعات والتصويت، والصلاحيات الإدارية والمالية. رؤيتي أن تُنشر هذه اللائحة، فور اعتمادها، بشفافية كاملة داخل المنصة لكل الأعضاء — بدل أن تبقى وثيقة داخلية.</div>
+  </div>
+</section>
+
+<section class="section section-alt" id="candidate">
+  <div class="container">
+    <span class="kicker">خامساً</span>
+    <h2 style="margin-bottom:38px;">عن المرشح</h2>
+    <div class="candidate-wrap">
+      <div>
+        <div class="avatar-mark">إ</div>
+        <div class="candidate-name">إبراهيم بن خلفان بن ناصر اليحيائي</div>
+        <div class="candidate-role">مرشح لنيابة رئاسة اللجنة التنسيقية للمؤسسات التدريبية الخاصة</div>
+      </div>
+      <div class="candidate-copy">
+        <p>سيتم استكمال هذا القسم بالسيرة الذاتية والمسيرة المهنية للمرشح إبراهيم بن خلفان بن ناصر اليحيائي فور إرفاقها، لتوضيح خبرته في القطاع وأبرز محطاته المهنية.</p>
+        <div class="why"><strong>ما يحتاجه هذا الدور:</strong> قيادة قادرة على توحيد صوت مؤسسات متعددة، وتحويل اختصاصات اللجنة الاثني عشر من بنود على ورق إلى نتائج ملموسة يشعر بها القطاع يوميًا.</div>
+        <p class="edit-hint">* السيرة الذاتية الكاملة ستُضاف هنا فور إرفاقها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">ملتقى</div>
+        <p class="footer-tag">المنصة الموحّدة لمؤسسات التدريب الخاص في سلطنة عُمان — رؤية ترشّح لخدمة قطاع أقوى وأكثر ترابطًا.</p>
+      </div>
+      <div class="footer-cta">
+        <a href="#directory" class="btn btn-gold">سجّل مؤسستك</a>
+        <span style="font-size:.8rem;">للتواصل: [يُضاف البريد الإلكتروني أو الرقم]</span>
+      </div>
+    </div>
+    <div class="footer-bottom">وثيقة رؤية أُعدّت لدعم الترشح لعضوية اللجنة التنسيقية للمؤسسات التدريبية الخاصة، سلطنة عُمان.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+  function closeNav(){document.getElementById('navLinks').classList.remove('open');}
+
+  const institutions = [
+    {name:"معهد الرواد للتدريب المهني", gov:"مسقط", cat:"تدريب مهني وتقني", type:"معهد"},
+    {name:"أكاديمية آفاق للتدريب الإداري", gov:"ظفار", cat:"تدريب إداري وقيادي", type:"أكاديمية"},
+    {name:"مركز التميز للتدريب التقني", gov:"الباطنة", cat:"تدريب تقني ورقمي", type:"مركز"},
+    {name:"معهد النخبة لتنمية المهارات", gov:"الداخلية", cat:"تدريب مهني وتقني", type:"معهد"},
+    {name:"أكاديمية الإبداع الرقمي", gov:"الشرقية", cat:"تدريب تقني ورقمي", type:"أكاديمية"},
+    {name:"مركز الرؤية للتدريب اللغوي", gov:"البريمي", cat:"تدريب لغات", type:"مركز"},
+    {name:"معهد الجودة للتدريب الصحي", gov:"الظاهرة", cat:"تدريب صحي", type:"معهد"},
+    {name:"أكاديمية القمة للسلامة المهنية", gov:"مسقط", cat:"سلامة مهنية", type:"أكاديمية"},
+    {name:"مركز الإتقان لتدريب الأعمال", gov:"ظفار", cat:"ريادة أعمال وتدريب إداري", type:"مركز"},
+    {name:"معهد الانطلاقة للتدريب المهني", gov:"الباطنة", cat:"تدريب مهني وتقني", type:"معهد"}
+  ];
+
+  const grid = document.getElementById('directoryGrid');
+  const govSelect = document.getElementById('govFilter');
+  const catSelect = document.getElementById('catFilter');
+  const searchInput = document.getElementById('searchInput');
+
+  function unique(arr){return [...new Set(arr)];}
+  unique(institutions.map(i=>i.gov)).forEach(g=>{
+    const opt=document.createElement('option'); opt.value=g; opt.textContent=g; govSelect.appendChild(opt);
+  });
+  unique(institutions.map(i=>i.cat)).forEach(c=>{
+    const opt=document.createElement('option'); opt.value=c; opt.textContent=c; catSelect.appendChild(opt);
+  });
+
+  function renderDirectory(){
+    const q=searchInput.value.trim();
+    const g=govSelect.value;
+    const c=catSelect.value;
+    const filtered=institutions.filter(i=>(!q||i.name.includes(q))&&(!g||i.gov===g)&&(!c||i.cat===c));
+    grid.innerHTML='';
+    if(filtered.length===0){
+      grid.innerHTML='<div class="empty-state">لا توجد نتائج مطابقة — جرّب تعديل البحث أو التصفية.</div>';
+      return;
+    }
+    filtered.forEach(i=>{
+      const card=document.createElement('div');
+      card.className='inst-card';
+      card.innerHTML='<span class="inst-type">'+i.type+'</span><h4>'+i.name+'</h4><div class="inst-meta"><span><b>المحافظة</b>'+i.gov+'</span><span><b>التخصص</b>'+i.cat+'</span></div>';
+      grid.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', renderDirectory);
+  govSelect.addEventListener('change', renderDirectory);
+  catSelect.addEventListener('change', renderDirectory);
+  renderDirectory();
+</script>
+</body>
+</html>
